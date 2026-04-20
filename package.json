@@ -1,0 +1,21 @@
+{
+  "name": "land-registration-hardhat",
+  "version": "1.0.0",
+  "description": "Hardhat project for Decentralized Land Registration System",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "seed": "hardhat run scripts/seedTestData.js --network localhost",
+    "node": "hardhat node",
+    "test": "hardhat test",
+    "clean": "hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1"
+  }
+}

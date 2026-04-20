@@ -1,0 +1,8 @@
+node_modules/
+cache/
+artifacts/
+.env
+oracle/.env
+client/.env
+client/node_modules/
+client/build/

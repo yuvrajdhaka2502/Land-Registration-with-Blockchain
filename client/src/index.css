@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: #FAF7F0;
+  color: #171612;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* fraunces calibrated at display opsz for headings */
+h1, h2, h3, .font-serif {
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+  letter-spacing: -0.02em;
+}
+
+/* Selection */
+::selection { background: #1F5D4C; color: #FAF7F0; }
+
+/* Subtle parchment texture applied at the body level */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(rgba(23,22,18,0.035) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+#root { position: relative; z-index: 1; }
+
+/* ── Components ──────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Buttons: square-edged, letter-spaced — distinct from pill/rounded-lg style */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm
+           bg-ink text-paper font-medium text-sm tracking-wide
+           hover:bg-land-700 active:bg-land-800
+           transition-colors duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm
+           border border-ink/25 bg-transparent text-ink font-medium text-sm tracking-wide
+           hover:bg-ink hover:text-paper hover:border-ink
+           active:bg-ink/90
+           transition-colors duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm
+           bg-rose2 text-paper font-medium text-sm tracking-wide
+           hover:bg-[#8E2E2E] active:bg-[#6C2323]
+           transition-colors duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-land {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-sm
+           bg-land-600 text-paper font-medium text-sm tracking-wide
+           hover:bg-land-700 active:bg-land-800
+           transition-colors duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  /* Panel / card — deed aesthetic with hairline borders (no soft shadow) */
+  .card, .panel {
+    @apply bg-paper border border-bone/80 rounded-sm p-6 shadow-deed;
+  }
+
+  .input {
+    @apply w-full rounded-sm border border-bone bg-paper px-3 py-2.5
+           text-sm text-ink placeholder-muted
+           focus:outline-none focus:border-ink focus:ring-0
+           disabled:bg-vellum disabled:text-muted;
+  }
+
+  .label {
+    @apply block text-[11px] font-medium tracking-[0.14em] uppercase text-slate2 mb-1.5;
+  }
+
+  /* Page titles use Fraunces display */
+  .page-title {
+    @apply font-serif text-3xl font-semibold text-ink leading-tight mb-1;
+    letter-spacing: -0.03em;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-slate2 mb-8 max-w-2xl;
+  }
+
+  /* Section label — Smoothflow-inspired small-caps eyebrow with leading dot */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.2em]
+           uppercase text-slate2;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 9999px;
+    background: #1F5D4C;
+  }
+
+  /* ULPIN display chip */
+  .chip-ulpin {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs tracking-tight
+           text-land-700 bg-land-50 border border-land-100
+           px-2 py-0.5 rounded-xs;
+  }
+
+  /* Status pill */
+  .pill {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-xs text-[11px]
+           font-medium tracking-wide border;
+  }
+
+  /* Parcel grid pattern overlay helper (e.g., hero sections) */
+  .bg-parcels {
+    background-image:
+      linear-gradient(0deg,  rgba(23,22,18,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23,22,18,0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Divider with trailing dash — editorial separator */
+  .rule {
+    @apply relative border-t border-bone;
+  }
+  .rule::after {
+    content: "";
+    position: absolute;
+    top: -1px; right: 0;
+    width: 32px; height: 2px;
+    background: #1F5D4C;
+  }
+}
+
+/* ── Leaflet tweaks — blend with parchment aesthetic ──────────────────────── */
+.leaflet-container {
+  background: #F3EEE1 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.leaflet-control-attribution {
+  font-size: 10px !important;
+  background: rgba(250, 247, 240, 0.8) !important;
+}

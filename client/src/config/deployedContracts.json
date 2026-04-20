@@ -1,0 +1,11 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "deployedAt": "2026-04-16T11:10:32.838Z",
+  "deployer": "0x1158613D8b9a7c7e10053581d912660A1b77660c",
+  "oracleWallet": "0x1158613D8b9a7c7e10053581d912660A1b77660c",
+  "UserRegistry": "0x9d531944cBC663fF8ac0c7046f74FF96eb21b1f0",
+  "AadhaarOracle": "0xe2552cf40B9962c0cBff14f495Ef067aAC11c645",
+  "CircleRateOracle": "0x32aE72EDaE317f420D6B59859E771E37c4A7860C",
+  "LandRegistry": "0xD9fdBA585479262E7491bD0eaf2a7622034C6265"
+}
